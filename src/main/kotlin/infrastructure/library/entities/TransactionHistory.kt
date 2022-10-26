@@ -1,7 +1,7 @@
 package infrastructure.library.entities
 
+import core.enumeration.TransactionType
 import infrastructure.common.entity.BaseEntity
-import infrastructure.individual.entities.InvolvedParty
 import java.time.LocalDateTime
 
 data class TransactionHistory(
@@ -10,5 +10,7 @@ data class TransactionHistory(
     override var updatedBy: String?,
     override var updatedDateTime: LocalDateTime?,
     override val createdDateTime: LocalDateTime = LocalDateTime.now(),
-
+    val employee: Account,
+    val status: TransactionType,
+    val transaction: Transaction,
 ): BaseEntity
