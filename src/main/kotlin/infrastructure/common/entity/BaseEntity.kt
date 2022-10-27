@@ -3,7 +3,7 @@ package infrastructure.common.entity
 import java.time.LocalDateTime
 
 interface BaseEntity{
-    val id: Int
+    var id: Int
     val createdBy: String
     var updatedBy: String?
     var updatedDateTime: LocalDateTime?

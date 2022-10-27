@@ -5,7 +5,7 @@ import infrastructure.common.entity.BaseEntity
 import java.time.LocalDateTime
 
 data class Book(
-    override val id: Int = 0,
+    override var id: Int = 0,
     override val createdBy: String = "",
     override var updatedBy: String?,
     override var updatedDateTime: LocalDateTime?,

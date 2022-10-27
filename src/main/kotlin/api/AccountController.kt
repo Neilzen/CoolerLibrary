@@ -1,6 +1,6 @@
 package api
 
-class IndividualController {
+class AccountController {
 
     //Add Customer
     //Who, where and what
