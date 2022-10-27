@@ -1,7 +1,8 @@
-package local.staticdata
+package local.staticdata.individual
 
 import core.enumeration.ElectronicAddressType
 import infrastructure.individual.entities.ElectronicAddress
+import local.staticdata.AbstractStaticData
 import local.staticdata.generator.SequenceGenerator
 import java.time.LocalDateTime
 

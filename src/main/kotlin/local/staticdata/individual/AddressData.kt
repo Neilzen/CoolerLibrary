@@ -1,6 +1,7 @@
-package local.staticdata
+package local.staticdata.individual
 
 import infrastructure.individual.entities.Address
+import local.staticdata.AbstractStaticData
 import local.staticdata.generator.SequenceGenerator
 import java.time.LocalDateTime
 

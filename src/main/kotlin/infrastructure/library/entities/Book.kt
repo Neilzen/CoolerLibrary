@@ -11,7 +11,8 @@ data class Book(
     override var updatedDateTime: LocalDateTime?,
     override val createdDateTime: LocalDateTime = LocalDateTime.now(),
     val name: String,
-    val genre: BookGenre,
+    val fictionGenre: BookGenre.FICTION?,
+    val nonFictionGenre: BookGenre.NONFICTION?,
     val overview: String,
     val author: Author,
 ): BaseEntity

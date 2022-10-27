@@ -11,6 +11,6 @@ data class Inventory(
     override var updatedDateTime: LocalDateTime?,
     override val createdDateTime: LocalDateTime = LocalDateTime.now(),
     val book: Book,
-    val quantity: NullPointerException,
+    val quantity: Int,
     val status: InventoryStatus
 ): BaseEntity

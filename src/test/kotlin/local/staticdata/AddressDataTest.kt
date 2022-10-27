@@ -3,6 +3,7 @@ package local.staticdata
 import infrastructure.individual.entities.Address
 import local.staticdata.exception.StaticDataException
 import local.staticdata.generator.SequenceGenerator
+import local.staticdata.individual.AddressData
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance

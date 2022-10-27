@@ -1,8 +1,8 @@
-package local.staticdata
+package local.staticdata.individual
 
 import core.enumeration.Gender
-import infrastructure.individual.entities.Address
 import infrastructure.individual.entities.Individual
+import local.staticdata.AbstractStaticData
 import local.staticdata.generator.SequenceGenerator
 import java.time.LocalDateTime
 

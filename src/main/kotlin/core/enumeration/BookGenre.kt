@@ -3,7 +3,7 @@ package core.enumeration
 enum class BookGenre {
     ;enum class FICTION(affix: String) {
         ACTIONANDADVENTURE("Action and adventure"),
-        ALTERNATEHISTORYT("Alternate history"),
+        ALTERNATEHISTORY("Alternate history"),
         COMICBOOK("Comic book"),
         CRIME("Crime"),
         SUSPENSE("Suspense"),

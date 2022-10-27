@@ -1,7 +1,8 @@
-package local.staticdata
+package local.staticdata.individual
 
 import core.enumeration.IndividualType
 import infrastructure.individual.entities.InvolvedParty
+import local.staticdata.AbstractStaticData
 import local.staticdata.generator.SequenceGenerator
 import java.time.LocalDateTime
 
@@ -9,7 +10,7 @@ class InvolvedPartyData: AbstractStaticData<InvolvedParty>(storage = involvedPar
 
     companion object {
 
-        private val involvedPartyA = InvolvedParty(
+        internal val involvedPartyA = InvolvedParty(
             SequenceGenerator.generateInvolvedPartyId(),
             "LocalTest",
             null,
@@ -22,7 +23,7 @@ class InvolvedPartyData: AbstractStaticData<InvolvedParty>(storage = involvedPar
             ElectronicAddressData.electronicAddressAEmail,
             ElectronicAddressData.electronicAddressAMobile
         )
-        private val involvedPartyB = InvolvedParty(
+        internal val involvedPartyB = InvolvedParty(
             SequenceGenerator.generateInvolvedPartyId(),
             "LocalTest",
             null,
@@ -35,7 +36,7 @@ class InvolvedPartyData: AbstractStaticData<InvolvedParty>(storage = involvedPar
             ElectronicAddressData.electronicAddressBEmail,
             ElectronicAddressData.electronicAddressBMobile
         )
-        private val involvedPartyC = InvolvedParty(
+        internal val involvedPartyC = InvolvedParty(
             SequenceGenerator.generateInvolvedPartyId(),
             "LocalTest",
             null,
