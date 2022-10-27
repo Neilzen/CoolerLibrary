@@ -3,7 +3,7 @@ package local.staticdata
 import infrastructure.common.entity.BaseEntity
 import local.staticdata.exception.StaticDataException
 
-abstract class AbstractStaticData<E: BaseEntity>(var storage: MutableMap<Int, E>) {
+abstract class AbstractStaticData<E : BaseEntity>(var storage: MutableMap<Int, E>) {
 
     @Throws()
     fun get(id: Int): E {
@@ -31,22 +31,32 @@ abstract class AbstractStaticData<E: BaseEntity>(var storage: MutableMap<Int, E>
 
     fun persistAll(objectList: List<E>): List<E> {
         println("Persisting all data: $objectList")
-        for(objectValue in objectList) {
-            storage[objectValue.id] = objectValue
+        for (objectValue in objectList) {
+            persist(objectValue)
         }
         return objectList
     }
 
     fun persist(data: E): E {
         println("Persisting data: $data")
+        generateIdSequence(data)
         storage[data.id] = data
         return data
     }
 
     private fun checkIfDataExist(id: Int) {
-        if(!storage.containsKey(id)) {
+        if (!storage.containsKey(id)) {
             println("Data does not exist for $id")
             throw StaticDataException("Entry does not exist")
         }
+    }
+
+    private fun generateIdSequence(data: E) {
+        generateIdSequence(data)
+
+    }
+
+    private fun idPresent(data: E): Boolean {
+        return 0 == data.id
     }
 }

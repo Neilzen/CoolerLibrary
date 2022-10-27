@@ -1,5 +1,13 @@
 package local.staticdata.generator
 
+import infrastructure.common.entity.BaseEntity
+import infrastructure.individual.entities.Address
+import infrastructure.individual.entities.ElectronicAddress
+import infrastructure.individual.entities.Individual
+import infrastructure.individual.entities.InvolvedParty
+import infrastructure.library.entities.*
+import local.staticdata.exception.StaticDataException
+
 class SequenceGenerator {
 
     companion object {
@@ -14,54 +22,70 @@ class SequenceGenerator {
         private var transactionId = 0
         private var transactionHistoryId = 0
 
-        fun generateAddressId(): Int {
+        internal fun generateAddressId(): Int {
             addressId++
             return addressId
         }
 
-        fun generateElectronicAddressId(): Int {
+        internal fun generateElectronicAddressId(): Int {
             electronicAddressId++
             return electronicAddressId
         }
 
-        fun generateIndividualId(): Int {
+        internal fun generateIndividualId(): Int {
             individualId++
             return individualId
         }
 
-        fun generateInvolvedPartyId(): Int {
+        internal fun generateInvolvedPartyId(): Int {
             involvedPartyId++
             return involvedPartyId
         }
 
-        fun generateAccountId(): Int {
+        internal fun generateAccountId(): Int {
             accountId++
             return accountId
         }
 
-        fun generateAuthorId(): Int {
+        internal fun generateAuthorId(): Int {
             authorId++
             return authorId
         }
 
-        fun generateBookId(): Int {
+        internal fun generateBookId(): Int {
             bookId++
             return bookId
         }
 
-        fun generateInventoryId(): Int {
+        internal fun generateInventoryId(): Int {
             inventoryId++
             return inventoryId
         }
 
-        fun generateTransactionId(): Int {
+        internal fun generateTransactionId(): Int {
             transactionId++
             return transactionId
         }
 
-        fun generateTransactionHistoryId(): Int {
+        internal fun generateTransactionHistoryId(): Int {
             transactionHistoryId++
             return transactionHistoryId
+        }
+
+        internal fun generateIdSequence(data: Any) {
+            when(data) {
+                is Address -> data.id = generateAddressId()
+                is ElectronicAddress -> data.id = generateElectronicAddressId()
+                is Individual -> data.id = generateIndividualId()
+                is InvolvedParty -> data.id = generateInvolvedPartyId()
+                is Account -> data.id = generateAccountId()
+                is Author -> data.id = generateAuthorId()
+                is Book -> data.id = generateBookId()
+                is Inventory -> data.id = generateInventoryId()
+                is Transaction -> data.id = generateTransactionId()
+                is TransactionHistory -> data.id = generateTransactionHistoryId()
+                else -> throw StaticDataException("Data Type is not specified in Sequence Generator for ${data.javaClass.name}")
+            }
         }
     }
 }
