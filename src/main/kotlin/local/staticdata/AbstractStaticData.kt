@@ -2,6 +2,7 @@ package local.staticdata
 
 import infrastructure.common.entity.BaseEntity
 import local.staticdata.exception.StaticDataException
+import local.staticdata.generator.SequenceGenerator
 
 abstract class AbstractStaticData<E : BaseEntity>(var storage: MutableMap<Int, E>) {
 
@@ -39,7 +40,7 @@ abstract class AbstractStaticData<E : BaseEntity>(var storage: MutableMap<Int, E
 
     fun persist(data: E): E {
         println("Persisting data: $data")
-        generateIdSequence(data)
+        if(idPresent(data)) generateIdSequence(data)
         storage[data.id] = data
         return data
     }
@@ -52,8 +53,7 @@ abstract class AbstractStaticData<E : BaseEntity>(var storage: MutableMap<Int, E
     }
 
     private fun generateIdSequence(data: E) {
-        generateIdSequence(data)
-
+        SequenceGenerator.generateIdSequence(data)
     }
 
     private fun idPresent(data: E): Boolean {

@@ -10,7 +10,7 @@ class AddressRepositoryImpl(abstractStaticData: AbstractStaticData<Address>) :
     AbstractRepository<Address>(abstractStaticData) {
 
     override fun addAddress(address: Address): Address {
-        return super.add(address)
+        return super.persist(address)
     }
 
     override fun getAddress(id: Int): Address {
@@ -20,6 +20,4 @@ class AddressRepositoryImpl(abstractStaticData: AbstractStaticData<Address>) :
     override fun updateAddress(address: Address): Address {
         return super.update(address)
     }
-
-
 }

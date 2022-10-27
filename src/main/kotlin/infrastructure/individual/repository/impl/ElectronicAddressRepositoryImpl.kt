@@ -1,19 +1,23 @@
 package infrastructure.individual.repository.impl
 
+import infrastructure.common.repository.AbstractRepository
 import infrastructure.individual.entities.Address
 import infrastructure.individual.entities.ElectronicAddress
 import infrastructure.individual.repository.ElectronicAddressRepository
+import local.staticdata.AbstractStaticData
 
-class ElectronicAddressRepositoryImpl : ElectronicAddressRepository {
+class ElectronicAddressRepositoryImpl(
+    abstractStaticData: AbstractStaticData<ElectronicAddress>
+) : ElectronicAddressRepository, AbstractRepository<ElectronicAddress>(abstractStaticData) {
     override fun addElectronicAddress(electronicAddress: ElectronicAddress): ElectronicAddress {
-        TODO("Not yet implemented")
+        return super.persist(electronicAddress)
     }
 
-    override fun getElectronicAddress(id: Int): Address {
-        TODO("Not yet implemented")
+    override fun getElectronicAddress(id: Int): ElectronicAddress {
+        return super.getEntity(id)
     }
 
     override fun updateElectronicAddress(electronicAddress: ElectronicAddress): ElectronicAddress {
-        TODO("Not yet implemented")
+        return super.update(electronicAddress)
     }
 }

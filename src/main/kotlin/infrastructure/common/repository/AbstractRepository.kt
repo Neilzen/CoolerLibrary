@@ -2,9 +2,8 @@ package infrastructure.common.repository
 
 import infrastructure.common.entity.BaseEntity
 import local.staticdata.AbstractStaticData
-import kotlin.math.abs
 
-abstract class AbstractRepository<E: BaseEntity> (val abstractStaticData: AbstractStaticData<E>) {
+abstract class AbstractRepository<E: BaseEntity> (private val abstractStaticData: AbstractStaticData<E>) {
 
     fun getEntity(id: Int): E {
         return abstractStaticData.get(id)
@@ -18,7 +17,7 @@ abstract class AbstractRepository<E: BaseEntity> (val abstractStaticData: Abstra
         return abstractStaticData.getAll()
     }
 
-    fun add(e: E): E {
+    fun persist(e: E): E {
         return abstractStaticData.persist(e)
     }
 
