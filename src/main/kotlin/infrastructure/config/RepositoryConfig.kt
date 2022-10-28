@@ -8,10 +8,13 @@ import infrastructure.individual.repository.impl.AddressRepositoryImpl
 import infrastructure.individual.repository.impl.ElectronicAddressRepositoryImpl
 import infrastructure.individual.repository.impl.IndividualRepositoryImpl
 import infrastructure.individual.repository.impl.InvolvedPartyRepositoryImpl
+import infrastructure.library.repository.AccountRepository
+import infrastructure.library.repository.impl.AccountRepositoryImpl
 import local.staticdata.individual.AddressData
 import local.staticdata.individual.ElectronicAddressData
 import local.staticdata.individual.IndividualData
 import local.staticdata.individual.InvolvedPartyData
+import local.staticdata.library.AccountData
 
 class RepositoryConfig {
 
@@ -33,6 +36,10 @@ class RepositoryConfig {
             electronicAddressRepository(),
             individualRepository(),
             InvolvedPartyData())
+    }
+
+    fun accountRepository(): AccountRepository {
+        return AccountRepositoryImpl(AccountData())
     }
 
 }

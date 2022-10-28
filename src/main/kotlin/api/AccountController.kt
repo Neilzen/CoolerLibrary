@@ -1,10 +1,13 @@
 package api
 
-class AccountController {
+import api.dto.request.AccountDTO
+import core.service.AccountService
+
+class AccountController(private val accountService: AccountService) {
 
     //Add Customer
     //Who, where and what
-    fun addCustomer() {
+    fun addCustomer(accountDTO: AccountDTO) {
 
     }
 
