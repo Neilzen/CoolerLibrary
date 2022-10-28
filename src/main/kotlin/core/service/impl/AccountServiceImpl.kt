@@ -6,10 +6,6 @@ import core.enumeration.AccountStatus
 import core.service.AccountService
 import core.service.InvolvedPartyService
 import infrastructure.individual.entities.InvolvedParty
-import infrastructure.individual.repository.AddressRepository
-import infrastructure.individual.repository.ElectronicAddressRepository
-import infrastructure.individual.repository.IndividualRepository
-import infrastructure.individual.repository.InvolvedPartyRepository
 import infrastructure.library.entities.Account
 import infrastructure.library.repository.AccountRepository
 import java.time.LocalDateTime
@@ -24,22 +20,26 @@ class AccountServiceImpl(
     }
 
     override fun addAccount(accountDTO: AccountDTO): AccountDTO {
-        val involvedParty = involvedPartyService.addInvolvedParty(AccountConverter.accountToInvolvedPartyEntity(accountDTO))
-        accountRepository.addAccount(initializeAccountEntity(accountDTO, involvedParty))
+        val involvedParty =
+            involvedPartyService.addInvolvedParty(AccountConverter.accountToInvolvedPartyEntity(accountDTO))
+        accountRepository.addAccount(mapAccountDtoToEntity(accountDTO, involvedParty))
         return accountDTO
     }
 
-    override fun updateAccount(accountDTO: AccountDTO): Boolean {
-        TODO("Not yet implemented")
+    override fun updateAccount(accountDTO: AccountDTO): AccountDTO {
+        val involvedParty = AccountConverter.accountToInvolvedPartyEntity(accountDTO)
+        involvedPartyService.updateInvolvedParty(involvedParty)
+        accountRepository.updateAccount(mapAccountDtoToEntity(accountDTO, involvedParty))
+        return accountDTO
     }
 
     override fun getAccount(id: Int): Account {
-        TODO("Not yet implemented")
+        return accountRepository.getAccount(id)
     }
 
-    private fun initializeAccountEntity(accountDTO: AccountDTO, involvedParty: InvolvedParty): Account {
+    private fun mapAccountDtoToEntity(accountDTO: AccountDTO, involvedParty: InvolvedParty): Account {
         return Account(
-            0,
+            accountDTO.id ?: 0,
             "SystemTest",
             null,
             null,

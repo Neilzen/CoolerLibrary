@@ -6,6 +6,7 @@ import core.enumeration.IndividualType
 import infrastructure.common.entity.BaseEntity
 
 data class AccountDTO(
+    val id: Int?,
     val firstName: String,
     val lastName: String,
     val middleName: String,

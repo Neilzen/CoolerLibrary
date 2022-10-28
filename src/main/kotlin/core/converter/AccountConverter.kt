@@ -33,7 +33,7 @@ class AccountConverter {
 
         private fun mapAccountToAddress(accountDTO: AccountDTO): Address {
             return Address(
-                0,
+                accountDTO.id ?: 0,
                 "SystemTest",
                 null,
                 null,

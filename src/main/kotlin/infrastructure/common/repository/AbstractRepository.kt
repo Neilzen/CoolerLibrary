@@ -2,6 +2,7 @@ package infrastructure.common.repository
 
 import infrastructure.common.entity.BaseEntity
 import local.staticdata.AbstractStaticData
+import java.time.LocalDateTime
 
 abstract class AbstractRepository<E: BaseEntity> (private val abstractStaticData: AbstractStaticData<E>) {
 
@@ -25,6 +26,8 @@ abstract class AbstractRepository<E: BaseEntity> (private val abstractStaticData
         //Check if data exist
         //Abstract will throw error if it does not exist
         abstractStaticData.get(e.id)
+        e.updatedBy = "SystemUpdateTest"
+        e.updatedDateTime = LocalDateTime.now()
         return abstractStaticData.persist(e)
     }
 

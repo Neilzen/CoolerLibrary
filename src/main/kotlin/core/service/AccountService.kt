@@ -7,7 +7,7 @@ interface AccountService {
 
      fun isEligible(id: Int): Boolean
      fun addAccount(accountDTO: AccountDTO): AccountDTO
-     fun updateAccount(accountDTO: AccountDTO): Boolean
+     fun updateAccount(accountDTO: AccountDTO): AccountDTO
      fun getAccount(id: Int): Account
 
 }
