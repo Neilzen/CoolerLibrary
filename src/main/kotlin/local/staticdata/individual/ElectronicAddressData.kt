@@ -24,7 +24,7 @@ class ElectronicAddressData: AbstractStaticData<ElectronicAddress>(storage = ele
             null,
             null,
             LocalDateTime.now(),
-            "neilzen.detorres@advancegroup.com",
+            "neilzen.detorres@email.com",
             ElectronicAddressType.MOBILE
         )
         internal val electronicAddressBMobile = ElectronicAddress(
@@ -42,7 +42,7 @@ class ElectronicAddressData: AbstractStaticData<ElectronicAddress>(storage = ele
             null,
             null,
             LocalDateTime.now(),
-            "neil.detorres@advancegroup.com",
+            "neil.detorres@email.com",
             ElectronicAddressType.MOBILE
         )
         internal val electronicAddressCMobile = ElectronicAddress(
@@ -60,7 +60,7 @@ class ElectronicAddressData: AbstractStaticData<ElectronicAddress>(storage = ele
             null,
             null,
             LocalDateTime.now(),
-            "roe.detorres@advancegroup.com",
+            "roe.detorres@email.com",
             ElectronicAddressType.MOBILE
         )
 
